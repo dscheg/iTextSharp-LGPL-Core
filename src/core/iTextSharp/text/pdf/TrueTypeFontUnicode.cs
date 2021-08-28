@@ -330,7 +330,7 @@ namespace iTextSharp.text.pdf {
             AddRangeUni(longTag, true, subset);
             ArrayList tmp = new ArrayList();
             foreach (object o in longTag.Values) {
-                tmp.Add(o);
+                if(o != null) tmp.Add(o);
             }
             Object[] metrics = tmp.ToArray();
             Array.Sort(metrics, this);
