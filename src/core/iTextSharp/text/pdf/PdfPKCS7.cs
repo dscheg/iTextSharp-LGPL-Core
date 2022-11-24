@@ -988,7 +988,7 @@ namespace iTextSharp.text.pdf {
                 digest = sig.GenerateSignature();
             MemoryStream bOut = new MemoryStream();
             
-            Asn1OutputStream dout = new Asn1OutputStream(bOut);
+            Asn1OutputStream dout = Asn1OutputStream.Create(bOut, Asn1Encodable.Der);
             dout.WriteObject(new DerOctetString(digest));
             dout.Close();
             
@@ -1168,7 +1168,7 @@ namespace iTextSharp.text.pdf {
             
             MemoryStream bOut = new MemoryStream();
             
-            Asn1OutputStream dout = new Asn1OutputStream(bOut);
+            Asn1OutputStream dout = Asn1OutputStream.Create(bOut, Asn1Encodable.Der);
             dout.WriteObject(new DerSequence(whole));
             dout.Close();
             

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using Org.BouncyCastle.X509;
 using Org.BouncyCastle.Math;
@@ -102,8 +103,8 @@ namespace iTextSharp.text.pdf {
             gen.AddRequest(id);
             
             // create details for nonce extension
-            ArrayList oids = new ArrayList();
-            ArrayList values = new ArrayList();
+            var oids = new List<DerObjectIdentifier>();
+            var values = new List<X509Extension>();
             
             oids.Add(OcspObjectIdentifiers.PkixOcspNonce);
             values.Add(new X509Extension(false, new DerOctetString(new DerOctetString(PdfEncryption.CreateDocumentId()).GetEncoded())));

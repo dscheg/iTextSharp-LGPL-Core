@@ -6,7 +6,7 @@ namespace itextsharp.System.Encodings
     {
         static EncodingsCatalog()
         {
-#if !NET40 && !NET45
+#if !NET461
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 #endif
         }
